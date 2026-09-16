@@ -628,18 +628,33 @@ The most important parts of a smooth animation are:
 For example, this is a very basic walk:
 
 ```text
-frame 0f {
-    right_arm rotation 25 0 0
-    left_arm rotation -25 0 0
-}
+animation Walk {
+    duration 1
+    framerate 30
+    loop true
+    priority Movement
 
-frame 15f {
-    right_arm rotation -25 0 0
-    left_arm rotation 25 0 0
-}
+    defaults {
+        easing Linear InOut
+    }
 
-frame 30f {
-    copy 0f
+    frame 0f {
+        right_arm rotation 25 0 0
+        left_arm rotation -25 0 0
+        right_leg rotation -20 0 0
+        left_leg rotation 20 0 0
+    }
+
+    frame 15f {
+        right_arm rotation -25 0 0
+        left_arm rotation 25 0 0
+        right_leg rotation 20 0 0
+        left_leg rotation -20 0 0
+    }
+
+    frame 30f {
+        copy 0f
+    }
 }
 ```
 
